@@ -30,9 +30,9 @@ const fetchOptions = {
 function createSesParams() {
     let body;
     if (books.length > 0) {
-        books.forEach(function(value, index, array) {
-            body += value.title + "\n";
-        });
+        body = books.map(function(value, index, array) {
+            return value.title;
+        }).join("\n") + "\n";
     } else {
         body = "新刊なし\n";
     }
